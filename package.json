@@ -1,0 +1,19 @@
+{
+  "name": "ts-land",
+  "version": "1.0.0",
+  "description": "A starter template project for [Adventure.land](https://adventure.land/)",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf ./build && tsc",
+    "start": "npm run build && node build/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^16.4.7",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.3.5"
+  }
+}
