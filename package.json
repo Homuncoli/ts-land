@@ -9,7 +9,7 @@
     "prepare": "husky install",
     "build": "rimraf ./build && webpack --mode production",
     "build:dev": "rimraf ./build && webpack --mode development",
-    "start": "npm run build && node build/bundle.js",
+    "start": "npm run build && python ./client/client.py --input ./build/bundle.js --token \"TOKEN\" --slot 1 --name \"ts-land\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
