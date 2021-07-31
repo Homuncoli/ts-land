@@ -8,6 +8,8 @@ A starter template project for [Adventure.land](https://adventure.land/)
 
 
 ## Usage
+Clone or Fork the repository
+ 
 Write your TypeScript code into the `src` directory
 
 Then run `npm run build` to build the `bundle.js` file and copy and paste it into your browser. If this is to bothersome use the build in python client for uploading your bundle
