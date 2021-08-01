@@ -11,6 +11,8 @@
     ],
     "rules": {
         "no-console": "warn",
-        "semi": "error"
+        "semi": "error",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-unused-vars": "off"
     }
   }
