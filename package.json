@@ -1,7 +1,7 @@
 {
   "name": "@homuncoli/ts-land",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.1.1",
+  "description": "TypeScript definitions for Adventure Land",
   "main": "index.js",
   "scripts": {
     "build": "npx tsc",
@@ -11,7 +11,11 @@
     "type": "git",
     "url": "git+https://github.com/Homuncoli/ts-land.git"
   },
-  "keywords": [],
+  "keywords": [
+    "mmo",
+    "adventure land",
+    "type"
+  ],
   "author": "",
   "license": "MIT",
   "bugs": {
