@@ -6,6 +6,7 @@ import { Title, TitleNames } from "./gamedata/title";
 import { Image } from "./gamedata/image";
 import * as quick_and_dirty from "./parsed/G.quick";
 import { ClassMapped } from "./gamedata/class";
+import { ConditionMapped } from "./gamedata/conditions";
 
 export {};
 
@@ -24,7 +25,7 @@ declare global {
         maps:         quick_and_dirty.GMaps;
         version:      number;
         cosmetics:    quick_and_dirty.Cosmetics;
-        conditions:   quick_and_dirty.Conditions;
+        conditions:   ConditionMapped;
         monsters:     { [key in keyof MonsterNames]: Monster };
         achievements: { [key in keyof AchievementNames]: Achievement };
         docs:         quick_and_dirty.Docs;

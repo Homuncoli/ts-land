@@ -5,331 +5,7 @@
 //   "Set quicktype target language"
 
 import { DamageType, Looks } from "../gamedata/class";
-
-export interface Conditions {
-    newcomersblessing: Easterluck;
-    stunned:           Cursed;
-    massproductionpp:  Charmed;
-    stoned:            Cursed;
-    purifier:          Darkblessing;
-    mining:            Fishing;
-    marked:            Charmed;
-    blink:             EsbjergCougar;
-    cursed:            Cursed;
-    mluck:             Easterluck;
-    warcry:            Darkblessing;
-    hopsickness:       Easterluck;
-    mcourage:          Mcourage;
-    darkblessing:      Darkblessing;
-    sugarrush:         Darkblessing;
-    monsterhunt:       Block;
-    eburn:             Eburn;
-    poisonous:         EsbjergCougar;
-    sanguine:          Darkblessing;
-    mlifesteal:        Darkblessing;
-    shocked:           Cursed;
-    stack:             Block;
-    authfail:          Authfail;
-    eheal:             Eheal;
-    penalty_cd:        Block;
-    phasedout:         Darkblessing;
-    halloween1:        Easterluck;
-    burned:            Burned;
-    licenced:          EsbjergCougar;
-    fullguardx:        ConditionsFullguard;
-    charging:          Charging;
-    invis:             EsbjergCougar;
-    dash:              Dash;
-    rspeed:            Darkblessing;
-    power:             Darkblessing;
-    dampened:          Cursed;
-    weakness:          Weakness;
-    town:              Fishing;
-    halloween2:        Easterluck;
-    easterluck:        Easterluck;
-    notverified:       Authfail;
-    fingered:          Fingered;
-    deepfreezed:       Deepfreezed;
-    sleeping:          Sleeping;
-    xpower:            Darkblessing;
-    reflection:        Reflection;
-    energized:         Darkblessing;
-    charmed:           Charmed;
-    holidayspirit:     Easterluck;
-    mshield:           EsbjergCougar;
-    massproduction:    Charmed;
-    frozen:            Burned;
-    invincible:        Block;
-    fishing:           Fishing;
-    fullguard:         ConditionsFullguard;
-    tangled:           Cursed;
-    halloween0:        Easterluck;
-    slowness:          Cursed;
-    withdrawal:        Weakness;
-    hardshell:         Hardshell;
-    poisoned:          Poisoned;
-    woven:             Cursed;
-    block:             Block;
-    xshotted:          Deepfreezed;
-}
-
-export interface Authfail {
-    debuff:      boolean;
-    name:        string;
-    gold:        number;
-    skin:        string;
-    technical:   boolean;
-    ui:          boolean;
-    explanation: string;
-    persistent:  boolean;
-    xp?:         number;
-    luck:        number;
-}
-
-export interface EsbjergCougar {
-    explanation?: string;
-    name:         string;
-    skin:         string;
-    buff?:        boolean;
-    ui?:          boolean;
-    duration?:    number;
-    type?:        PurpleType;
-    hostile?:     boolean;
-    damage_type?: DamageType;
-}
-
-export enum PurpleType {
-    Gm = "gm",
-    Monster = "monster",
-    Utility = "utility",
-}
-
-export interface Block {
-    explanation?: string;
-    persistent?:  boolean;
-    debuff?:      boolean;
-    name:         string;
-    skin?:        string;
-    duration?:    number;
-    ui?:          boolean;
-    bad?:         boolean;
-    type?:        string;
-    cooldown?:    number;
-}
-
-export interface Burned {
-    name:      string;
-    interval?: number;
-    bad:       boolean;
-    debuff:    boolean;
-    skin:      string;
-    ui:        boolean;
-    duration?: number;
-}
-
-export interface Charging {
-    duration: number;
-    speed:    number;
-    name:     string;
-    skin:     string;
-}
-
-export interface Charmed {
-    name:        string;
-    explanation: string;
-    debuff?:     boolean;
-    skin:        string;
-    duration:    number;
-    ui:          boolean;
-    buff?:       boolean;
-}
-
-export interface Cursed {
-    duration?:    number;
-    bad:          boolean;
-    debuff:       boolean;
-    name:         string;
-    skin:         string;
-    explanation?: string;
-    ui?:          boolean;
-    speed?:       number;
-    blocked?:     boolean;
-    set_speed?:   number;
-}
-
-export interface Darkblessing {
-    name:        string;
-    ui:          boolean;
-    skin:        string;
-    duration:    number;
-    output?:     number;
-    buff:        boolean;
-    frequency?:  number;
-    lifesteal?:  number;
-    evasion?:    number;
-    speed?:      number;
-    mp_cost?:    number;
-    str?:        number;
-    aura?:       boolean;
-    attr0?:      string;
-    armor?:      number;
-    resistance?: number;
-}
-
-export interface Dash {
-    set_speed:  number;
-    persistent: boolean;
-    name:       string;
-    skin:       string;
-}
-
-export interface Deepfreezed {
-    name:         string;
-    bad:          boolean;
-    ui:           boolean;
-    skin:         string;
-    duration:     number;
-    debuff:       boolean;
-    blocked?:     boolean;
-    explanation?: string;
-    persistent?:  boolean;
-}
-
-export interface Easterluck {
-    name:         string;
-    persistent:   boolean;
-    ui:           boolean;
-    skin:         string;
-    duration:     number;
-    buff?:        boolean;
-    luck:         number;
-    gold?:        number;
-    xp?:          number;
-    output?:      number;
-    explanation?: string;
-    debuff?:      boolean;
-    special?:     string;
-    aura?:        boolean;
-}
-
-export interface Eburn {
-    intensity: string;
-    ui:        boolean;
-    name:      string;
-    skin:      string;
-    duration:  number;
-    debuff:    boolean;
-    bad:       boolean;
-    interval:  number;
-    speed:     number;
-    damage:    number;
-}
-
-export interface Eheal {
-    name:     string;
-    heal:     number;
-    interval: number;
-    ui:       boolean;
-    skin:     string;
-    duration: number;
-    buff:     boolean;
-}
-
-export interface Fingered {
-    name:       string;
-    evasion:    number;
-    resistance: number;
-    bad:        boolean;
-    debuff:     boolean;
-    skin:       string;
-    blocked:    boolean;
-}
-
-export interface Fishing {
-    name:          string;
-    explanation:   string;
-    skin:          string;
-    duration:      number;
-    duration_min?: number;
-    channel:       boolean;
-    can_move?:     boolean;
-}
-
-export interface ConditionsFullguard {
-    name:       string;
-    armor:      number;
-    resistance: number;
-    persistent: boolean;
-    ui:         boolean;
-    skin:       string;
-    buff:       boolean;
-    miss?:      number;
-}
-
-export interface Hardshell {
-    set_speed: number;
-    name:      string;
-    armor:     number;
-    skin:      string;
-    duration:  number;
-    buff:      boolean;
-}
-
-export interface Mcourage {
-    courage:  number;
-    ui:       boolean;
-    name:     string;
-    evasion:  number;
-    skin:     string;
-    duration: number;
-    pcourage: number;
-    mcourage: number;
-    speed:    number;
-    buff:     boolean;
-}
-
-export interface Poisoned {
-    potionsm:   number;
-    healm:      number;
-    debuff:     boolean;
-    name:       string;
-    skin:       string;
-    duration:   number;
-    frequencym: number;
-    bad:        boolean;
-}
-
-export interface Reflection {
-    cap_reflection: number;
-    reflection:     number;
-    ui:             boolean;
-    skin:           string;
-    duration:       number;
-    buff:           boolean;
-    name:           string;
-}
-
-export interface Sleeping {
-    duration:     number;
-    duration_min: number;
-    debuff:       boolean;
-    name:         string;
-}
-
-export interface Weakness {
-    dex:         number;
-    bad:         boolean;
-    debuff:      boolean;
-    name:        string;
-    str:         number;
-    skin:        string;
-    duration:    number;
-    ui:          boolean;
-    speed:       number;
-    frequency?:  number;
-    persistent?: boolean;
-    mp?:         number;
-}
+import { Block, MiscCondition } from "../gamedata/conditions";
 
 export interface Cosmetics {
     default_beard_position:  number;
@@ -2382,9 +2058,9 @@ export interface Skills {
     use_town:         PurpleAnger;
     fishing:          Ing;
     regen_hp:         Regen;
-    gm:               EsbjergCougar;
+    gm:               MiscCondition;
     darkblessing:     The4_Fingers;
-    move_up:          EsbjergCougar;
+    move_up:          MiscCondition;
     snippet:          PureEval;
     dampening_aura:   SkillsCurseAura;
     phaseout:         CburstClass;
@@ -2393,7 +2069,7 @@ export interface Skills {
     "3shot":          Shot;
     taunt:            CburstClass;
     stomp:            Entangle;
-    multi_freeze:     EsbjergCougar;
+    multi_freeze:     MiscCondition;
     stop:             Block;
     snowball:         CburstClass;
     warpstomp:        PurpleAnger;
@@ -2413,11 +2089,11 @@ export interface Skills {
     use_hp:           PurpleAnger;
     curse:            CburstClass;
     "5shot":          Shot;
-    move_down:        EsbjergCougar;
-    esc:              EsbjergCougar;
+    move_down:        MiscCondition;
+    esc:              MiscCondition;
     power:            CburstClass;
     healing:          Block;
-    multi_burn:       EsbjergCougar;
+    multi_burn:       MiscCondition;
     selfheal:         Alchemy;
     throw:            Throw;
     invis:            Invis;
@@ -2428,15 +2104,15 @@ export interface Skills {
     scare:            Blink;
     emotion:          Block;
     deepfreeze:       Deepfreeze;
-    move_right:       EsbjergCougar;
+    move_right:       MiscCondition;
     revive:           Absorb;
     mluck:            Charm;
     tangle:           Blink;
     zap:              Deepfreeze;
     charge:           Blink;
-    move_left:        EsbjergCougar;
-    interact:         EsbjergCougar;
-    mlight:           EsbjergCougar;
+    move_left:        MiscCondition;
+    interact:         MiscCondition;
+    mlight:           MiscCondition;
     attack:           Attack;
     quickpunch:       Mentalburst;
     mining:           Ing;
@@ -2453,22 +2129,22 @@ export interface Skills {
     mtangle:          CburstClass;
     massproductionpp: Blink;
     weakness_aura:    SkillsCurseAura;
-    toggle_inventory: EsbjergCougar;
+    toggle_inventory: MiscCondition;
     dash:             Blink;
     anger:            PurpleAnger;
     toggle_character: Block;
     piercingshot:     Shot;
     travel:           PurpleAnger;
     supershot:        Cleave;
-    toggle_stats:     EsbjergCougar;
-    toggle_run_code:  EsbjergCougar;
+    toggle_stats:     MiscCondition;
+    toggle_run_code:  MiscCondition;
     regen_mp:         Regen;
     zapperzap:        ZapperzapClass;
     track:            Blink;
     absorb:           Absorb;
-    toggle_code:      EsbjergCougar;
+    toggle_code:      MiscCondition;
     portal:           PurpleAnger;
-    open_snippet:     EsbjergCougar;
+    open_snippet:     MiscCondition;
     stack:            Invis;
     curse_aura:       SkillsCurseAura;
     reflection:       Charm;
@@ -2677,7 +2353,7 @@ export interface SkillsCurseAura {
     skin:        string;
     duration:    number;
     explanation: string;
-    type:        PurpleType;
+    type:        string;
     condition:   string;
     aura:        boolean;
 }
@@ -2688,7 +2364,7 @@ export interface Deepfreeze {
     damage:      number;
     damage_type: DamageType;
     projectile:  string;
-    type:        PurpleType;
+    type:        string;
     name:        string;
 }
 
@@ -2823,7 +2499,7 @@ export interface PureEval {
     explanation: string;
     skins:       string[];
     skin:        string;
-    type:        PurpleType;
+    type:        string;
 }
 
 export interface ZapperzapClass {
@@ -2858,7 +2534,7 @@ export interface Stone {
     name:        string;
     explanation: string;
     duration:    number;
-    type:        PurpleType;
+    type:        string;
     condition:   string;
     hostile:     boolean;
 }
