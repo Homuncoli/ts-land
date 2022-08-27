@@ -7,6 +7,7 @@ import { Image } from "./gamedata/image";
 import * as quick_and_dirty from "./parsed/G.quick";
 import { ClassMapped } from "./gamedata/class";
 import { ConditionMapped } from "./gamedata/conditions";
+import { Cosmetics } from "./gamedata/cosmetic";
 
 export {};
 
@@ -24,7 +25,7 @@ declare global {
         multipliers:  quick_and_dirty.Multipliers;
         maps:         quick_and_dirty.GMaps;
         version:      number;
-        cosmetics:    quick_and_dirty.Cosmetics;
+        cosmetics:    Cosmetics;
         conditions:   ConditionMapped;
         monsters:     { [key in keyof MonsterNames]: Monster };
         achievements: { [key in keyof AchievementNames]: Achievement };
