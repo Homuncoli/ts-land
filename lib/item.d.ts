@@ -1,5 +1,6 @@
-import { ArakGroundhog, DamageType, OldRole } from "./gamedata";
+import { DamageType } from "./gamedata/class";
 import { Result } from "./internal/promise";
+import { OldRole } from "./parsed/G.quick";
 
 export {}
 
@@ -188,7 +189,7 @@ declare global {
     }
 
     type ItemWinterland = {
-        upgrade: ArakGroundhog;
+        upgrade: unknown;
         speed:   number;
     }
 

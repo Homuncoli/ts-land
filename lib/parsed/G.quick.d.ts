@@ -4,762 +4,7 @@
 //
 //   "Set quicktype target language"
 
-export interface Gamedata {
-    positions:    { [key: string]: Array<Array<number | string> | World | number> };
-    titles:       Titles;
-    tilesets:     Tilesets;
-    images:       { [key: string]: Image };
-    imagesets:    Imagesets;
-    dimensions:   { [key: string]: number[] };
-    emotions:     Emotions;
-    multipliers:  Multipliers;
-    maps:         GMaps;
-    version:      number;
-    cosmetics:    Cosmetics;
-    conditions:   Conditions;
-    monsters:     { [key in keyof MonsterNames]: MonsterData };
-    achievements: Achievements;
-    docs:         Docs;
-    dismantle:    { [key: string]: SantiagoDeCaliRaven };
-    projectiles:  Projectiles;
-    tokens:       TokensClass;
-    craft:        Craft;
-    npcs:         Npcs;
-    geometry:     BeijingPigeon;
-    items:        { [key: string]: ItemStats };
-    levels:       { [key: string]: number };
-    events:       Events;
-    skills:       Skills;
-    classes:      Classes;
-    games:        Games;
-    sets:         Sets;
-    drops:        Drops;
-    sprites:      { [key: string]: Custom };
-    quests:       BeijingPigeon;
-    base_gold:    BaseGold;
-}
-
-export interface Achievements {
-    abtesting:     AchievementsAbtesting;
-    gooped:        AchievementsAbtesting;
-    festive:       AchievementsAbtesting;
-    "1000boss":    The1000_Boss;
-    discoverlair:  The1000_Boss;
-    upgrade10:     Upgrade10;
-    lucky:         AchievementsAbtesting;
-    reach60:       Reach;
-    reach90:       Reach90;
-    reach70:       Reach;
-    firehazard:    AchievementsAbtesting;
-    monsterhunter: The1000_Boss;
-    "100boss":     The1000_Boss;
-    reach40:       Reach40;
-    stomped:       AchievementsAbtesting;
-    reach50:       Reach;
-    reach80:       Reach;
-}
-
-export interface The1000_Boss {
-    explanation: string;
-    name:        string;
-}
-
-export interface AchievementsAbtesting {
-    count?:      number;
-    explanation: string;
-    name:        string;
-    title:       string;
-    rr?:         number;
-}
-
-export interface Reach40 {
-    item: string;
-    name: string;
-}
-
-export interface Reach {
-    name:   string;
-    shells: number;
-}
-
-export interface Reach90 {
-    explanation: string;
-    name:        string;
-    shells:      number;
-}
-
-export interface Upgrade10 {
-    name: string;
-}
-
-export interface BaseGold {
-    stompy:          Arcticbee;
-    wolf:            Arcticbee;
-    arcticbee:       Arcticbee;
-    wolfie:          Arcticbee;
-    boar:            Arcticbee;
-    iceroamer:       Arcticbee;
-    icegolem:        Arcticbee;
-    rat:             Rat;
-    d_wiz:           DWiz;
-    bat:             Bat;
-    mvampire:        Mvampire;
-    xmagefz:         Xmage;
-    xmagefi:         Xmage;
-    xmagen:          Xmage;
-    xmagex:          Xmage;
-    crab:            LivingstoneSouthernWhiteFacedOwl;
-    squig:           LivingstoneSouthernWhiteFacedOwl;
-    squigtoad:       LivingstoneSouthernWhiteFacedOwl;
-    tortoise:        LivingstoneSouthernWhiteFacedOwl;
-    frog:            LivingstoneSouthernWhiteFacedOwl;
-    crabx:           LivingstoneSouthernWhiteFacedOwl;
-    crabxx:          LivingstoneSouthernWhiteFacedOwl;
-    target:          LivingstoneSouthernWhiteFacedOwl;
-    target_a500:     LivingstoneSouthernWhiteFacedOwl;
-    target_a750:     LivingstoneSouthernWhiteFacedOwl;
-    target_r500:     LivingstoneSouthernWhiteFacedOwl;
-    target_r750:     LivingstoneSouthernWhiteFacedOwl;
-    target_ar900:    LivingstoneSouthernWhiteFacedOwl;
-    target_ar500red: LivingstoneSouthernWhiteFacedOwl;
-    goo:             Goo;
-    bee:             LivingstoneSouthernWhiteFacedOwl;
-    poisio:          LivingstoneSouthernWhiteFacedOwl;
-    croc:            LivingstoneSouthernWhiteFacedOwl;
-    armadillo:       LivingstoneSouthernWhiteFacedOwl;
-    snake:           Snake;
-    bigbird:         LivingstoneSouthernWhiteFacedOwl;
-    spider:          Phoenix;
-    scorpion:        Scorpion;
-    phoenix:         Phoenix;
-    greenfairy:      LivingstoneSouthernWhiteFacedOwl;
-    redfairy:        LivingstoneSouthernWhiteFacedOwl;
-    bluefairy:       LivingstoneSouthernWhiteFacedOwl;
-    puppy1:          Kitty1;
-    puppy2:          Kitty1;
-    puppy3:          Kitty1;
-    puppy4:          Kitty1;
-    kitty1:          Kitty1;
-    kitty2:          Kitty1;
-    kitty3:          Kitty1;
-    kitty4:          Kitty1;
-    hen:             LivingstoneSouthernWhiteFacedOwl;
-    rooster:         LivingstoneSouthernWhiteFacedOwl;
-    mole:            Mole;
-    pinkgoblin:      Pinkgoblin;
-    osnake:          Fvampire;
-    greenjr:         Fvampire;
-    minimush:        Fvampire;
-    mrpumpkin:       Fvampire;
-    xscorpion:       Fvampire;
-    tinyp:           Fvampire;
-    ghost:           Fvampire;
-    fvampire:        Fvampire;
-    prat:            Prat;
-    mummy:           Mummy;
-    bbpompom:        Bbpompom;
-    cgoo:            Cgoo;
-    mechagnome:      Mechagnome;
-    dknight2:        Dknight2;
-    a1:              A1;
-    a7:              A1;
-    a3:              A1;
-    a6:              A1;
-    a5:              A1;
-    a2:              A1;
-    a4:              A1;
-    a8:              A1;
-    vbat:            A1;
-    booboo:          Booboo;
-    stoneworm:       Booboo;
-    mrgreen:         Booboo;
-    jr:              Booboo;
-    rgoo:            Rgoo;
-    oneeye:          Franky;
-    franky:          Franky;
-    pppompom:        Pppompom;
-    skeletor:        Skeletor;
-    plantoid:        Bscorpion;
-    porcupine:       Bscorpion;
-    ent:             Bscorpion;
-    fireroamer:      Bscorpion;
-    bscorpion:       Bscorpion;
-    jrat:            Jrat;
-    gredpro:         Pro;
-    ggreenpro:       Pro;
-    gbluepro:        Pro;
-    gpurplepro:      Pro;
-    grinch:          BaseGoldGrinch;
-}
-
-export interface A1 {
-    crypt: number;
-}
-
-export interface Arcticbee {
-    winterland: number;
-}
-
-export interface LivingstoneSouthernWhiteFacedOwl {
-    main: number;
-}
-
-export interface Bat {
-    batcave:  number;
-    old_main: number;
-    cave:     number;
-}
-
-export interface Bbpompom {
-    level3:      number;
-    winter_cave: number;
-}
-
-export interface Booboo {
-    spookytown: number;
-}
-
-export interface Bscorpion {
-    desertland: number;
-}
-
-export interface Cgoo {
-    level4:  number;
-    level2s: number;
-    arena:   number;
-}
-
-export interface DWiz {
-    d2: number;
-}
-
-export interface Dknight2 {
-    old_main: number;
-}
-
-export interface Franky {
-    level2w: number;
-}
-
-export interface Fvampire {
-    halloween: number;
-}
-
-export interface Pro {
-    tomb: number;
-}
-
-export interface Goo {
-    main:     number;
-    dungeon0: number;
-    old_main: number;
-}
-
-export interface BaseGoldGrinch {
-    woffice: number;
-}
-
-export interface Jrat {
-    jail: number;
-}
-
-export interface Kitty1 {
-    main:         number;
-    shellsisland: number;
-}
-
-export interface Mechagnome {
-    cyberland: number;
-}
-
-export interface Mole {
-    tunnel: number;
-}
-
-export interface Mummy {
-    level3:     number;
-    level4:     number;
-    spookytown: number;
-}
-
-export interface Mvampire {
-    batcave: number;
-    cave:    number;
-}
-
-export interface Phoenix {
-    main:     number;
-    old_main: number;
-}
-
-export interface Pinkgoblin {
-    level2e: number;
-}
-
-export interface Pppompom {
-    level2n: number;
-}
-
-export interface Prat {
-    level1: number;
-}
-
-export interface Rat {
-    mansion: number;
-}
-
-export interface Rgoo {
-    goobrawl: number;
-}
-
-export interface Scorpion {
-    main:       number;
-    old_main:   number;
-    desertland: number;
-}
-
-export interface Skeletor {
-    arena: number;
-}
-
-export interface Snake {
-    main:      number;
-    halloween: number;
-}
-
-export interface Xmage {
-    winter_instance: number;
-}
-
-export interface Classes {
-    merchant: Merchant;
-    warrior:  Warrior;
-    paladin:  Paladin;
-    priest:   Priest;
-    ranger:   Ranger;
-    rogue:    ClassesRogue;
-    mage:     Mage;
-}
-
-export interface Mage {
-    resistance:  number;
-    frequency:   number;
-    damage_type: DamageType;
-    mcourage:    number;
-    xcx:         string[];
-    speed:       number;
-    doublehand:  MageDoublehand;
-    stats:       Stats;
-    armor:       number;
-    range:       number;
-    attack:      number;
-    lstats:      Stats;
-    description: string;
-    offhand:     MageOffhand;
-    hp:          number;
-    courage:     number;
-    pcourage:    number;
-    mainhand:    MageMainhand;
-    mp_cost:     number;
-    base_slots:  BaseSlots;
-    mp:          number;
-    projectile:  string;
-    main_stat:   string;
-    looks:       Array<Array<PurpleLook | string>>;
-}
-
-export interface BaseSlots {
-    mainhand: BaseSlotsMainhand;
-}
-
-export interface BaseSlotsMainhand {
-    name:  string;
-    gift:  number;
-    level: number;
-}
-
-export enum DamageType {
-    Heal = "heal",
-    Magical = "magical",
-    Physical = "physical",
-}
-
-export interface MageDoublehand {
-    great_staff: GreatStaff;
-}
-
-export interface GreatStaff {
-    mp_cost:   number;
-    frequency: number;
-    speed:     number;
-}
-
-export interface PurpleLook {
-    head: HeadEnum;
-}
-
-export enum HeadEnum {
-    Bwhead = "bwhead",
-    Fmakeup01 = "fmakeup01",
-    Fmakeup03 = "fmakeup03",
-    Makeup105 = "makeup105",
-    Makeup107 = "makeup107",
-    Makeup117 = "makeup117",
-}
-
-export interface MageMainhand {
-    wblade: ArakGroundhog;
-    wand:   MainhandWand;
-    staff:  ArakGroundhog;
-}
-
-export interface ArakGroundhog {
-    speed: number;
-}
-
-export interface MainhandWand {
-    mp_cost:   number;
-    frequency: number;
-}
-
-export interface MageOffhand {
-    source:       BeijingPigeon;
-    misc_offhand: ArakGroundhog;
-}
-
-export interface BeijingPigeon {
-}
-
-export interface Merchant {
-    resistance:  number;
-    frequency:   number;
-    damage_type: string;
-    mcourage:    number;
-    speed:       number;
-    doublehand:  MerchantDoublehand;
-    stats:       Stats;
-    armor:       number;
-    range:       number;
-    attack:      number;
-    lstats:      Stats;
-    description: string;
-    offhand:     MerchantOffhand;
-    hp:          number;
-    courage:     number;
-    pcourage:    number;
-    mainhand:    MerchantMainhand;
-    mp_cost:     number;
-    base_slots:  BaseSlots;
-    mp:          number;
-    projectile:  string;
-    main_stat:   string;
-    looks:       Array<Array<LookClass | string>>;
-    xcx:         string[];
-}
-
-export interface MerchantDoublehand {
-    pickaxe: ArakGroundhog;
-    rod:     ArakGroundhog;
-    basher:  ArakGroundhog;
-    axe:     ArakGroundhog;
-}
-
-export interface LookClass {
-    hair?: string;
-    head?: HeadEnum;
-    hat?:  string;
-    face?: string;
-}
-
-export interface MerchantMainhand {
-    mace:        ArakGroundhog;
-    dagger:      ArakGroundhog;
-    fist:        ArakGroundhog;
-    spear:       ArakGroundhog;
-    short_sword: ArakGroundhog;
-    bow:         ArakGroundhog;
-    dartgun:     BeijingPigeon;
-    staff:       ArakGroundhog;
-}
-
-export interface MerchantOffhand {
-    source:       BeijingPigeon;
-    quiver?:      ArakGroundhog;
-    shield:       ArakGroundhog;
-    misc_offhand: ArakGroundhog;
-}
-
-export interface Paladin {
-    resistance:  number;
-    frequency:   number;
-    damage_type: DamageType;
-    mcourage:    number;
-    speed:       number;
-    doublehand:  BeijingPigeon;
-    stats:       Stats;
-    armor:       number;
-    range:       number;
-    attack:      number;
-    lstats:      Stats;
-    description: string;
-    offhand:     PaladinOffhand;
-    hp:          number;
-    courage:     number;
-    side_stat:   string;
-    pcourage:    number;
-    mainhand:    PaladinMainhand;
-    mp_cost:     number;
-    base_slots:  BaseSlots;
-    mp:          number;
-    projectile:  string;
-    main_stat:   string;
-    looks:       Array<Array<FluffyLook | string>>;
-    xcx:         string[];
-}
-
-export interface FluffyLook {
-    hair: string;
-    head: HeadEnum;
-}
-
-export interface PaladinMainhand {
-    mace:        BeijingPigeon;
-    sword:       Sword;
-    short_sword: ShortSword;
-}
-
-export interface ShortSword {
-    output: number;
-    speed:  number;
-}
-
-export interface Sword {
-    output:    number;
-    frequency: number;
-    speed:     number;
-}
-
-export interface PaladinOffhand {
-    source:       BeijingPigeon;
-    shield:       ArakGroundhog;
-    misc_offhand: BeijingPigeon;
-}
-
-export interface Priest {
-    resistance:  number;
-    frequency:   number;
-    damage_type: DamageType;
-    mcourage:    number;
-    xcx:         string[];
-    speed:       number;
-    doublehand:  PriestDoublehand;
-    stats:       Stats;
-    armor:       number;
-    range:       number;
-    attack:      number;
-    lstats:      Stats;
-    description: string;
-    offhand:     MerchantOffhand;
-    hp:          number;
-    courage:     number;
-    pcourage:    number;
-    mainhand:    PriestMainhand;
-    mp_cost:     number;
-    base_slots:  BaseSlots;
-    mp:          number;
-    projectile:  string;
-    main_stat:   string;
-    looks:       Array<Array<PurpleLook | string>>;
-}
-
-export interface PriestDoublehand {
-    wand: RapierClass;
-}
-
-export interface RapierClass {
-    frequency: number;
-}
-
-export interface PriestMainhand {
-    pmace: ArakGroundhog;
-    staff: ArakGroundhog;
-}
-
-export interface Ranger {
-    resistance:  number;
-    frequency:   number;
-    damage_type: DamageType;
-    mcourage:    number;
-    speed:       number;
-    doublehand:  RangerDoublehand;
-    stats:       Stats;
-    armor:       number;
-    range:       number;
-    attack:      number;
-    lstats:      Stats;
-    description: string;
-    offhand:     RangerOffhand;
-    hp:          number;
-    courage:     number;
-    pcourage:    number;
-    mainhand:    RangerMainhand;
-    mp_cost:     number;
-    base_slots:  BaseSlots;
-    mp:          number;
-    projectile:  string;
-    main_stat:   string;
-    looks:       Array<Array<TentacledLook | string>>;
-    xcx:         string[];
-}
-
-export interface RangerDoublehand {
-    dagger: BeijingPigeon;
-    fist:   BeijingPigeon;
-}
-
-export interface TentacledLook {
-    hair:    string;
-    head:    HeadEnum;
-    makeup?: string;
-}
-
-export interface RangerMainhand {
-    crossbow: Crossbow;
-    bow:      ArakGroundhog;
-}
-
-export interface Crossbow {
-    frequency: number;
-    apiercing: number;
-}
-
-export interface RangerOffhand {
-    quiver: BeijingPigeon;
-}
-
-export interface ClassesRogue {
-    resistance:  number;
-    frequency:   number;
-    damage_type: DamageType;
-    mcourage:    number;
-    speed:       number;
-    doublehand:  RogueDoublehand;
-    stats:       Stats;
-    armor:       number;
-    range:       number;
-    attack:      number;
-    lstats:      Stats;
-    description: string;
-    offhand:     RogueOffhand;
-    hp:          number;
-    courage:     number;
-    pcourage:    number;
-    mainhand:    RogueMainhand;
-    mp_cost:     number;
-    base_slots:  BaseSlots;
-    mp:          number;
-    projectile:  string;
-    main_stat:   string;
-    looks:       Array<Array<StickyLook | string>>;
-    xcx:         string[];
-}
-
-export interface RogueDoublehand {
-    rapier:      RapierClass;
-    short_sword: BeijingPigeon;
-    spear:       Spear;
-    bow:         Bow;
-}
-
-export interface Bow {
-    speed:     number;
-    frequency: number;
-    miss:      number;
-}
-
-export interface Spear {
-    frequency: number;
-    speed:     number;
-}
-
-export interface StickyLook {
-    hair:  string;
-    head:  HeadEnum;
-    chin?: string;
-}
-
-export interface RogueMainhand {
-    dagger: BeijingPigeon;
-    stars:  RapierClass;
-    fist:   BeijingPigeon;
-}
-
-export interface RogueOffhand {
-    misc_offhand: ArakGroundhog;
-    dagger:       BeijingPigeon;
-    stars:        BeijingPigeon;
-    fist:         BeijingPigeon;
-}
-
-export interface Warrior {
-    brave:       boolean;
-    resistance:  number;
-    frequency:   number;
-    damage_type: DamageType;
-    mcourage:    number;
-    xcx:         string[];
-    speed:       number;
-    doublehand:  WarriorDoublehand;
-    stats:       Stats;
-    armor:       number;
-    range:       number;
-    attack:      number;
-    lstats:      Stats;
-    description: string;
-    offhand:     WarriorOffhand;
-    hp:          number;
-    base_slots:  BaseSlots;
-    pcourage:    number;
-    mainhand:    WarriorMainhand;
-    mp_cost:     number;
-    courage:     number;
-    mp:          number;
-    projectile:  string;
-    main_stat:   string;
-    looks:       Array<Array<FluffyLook | string>>;
-}
-
-export interface WarriorDoublehand {
-    rapier:      Rapier;
-    great_sword: GreatStaff;
-    bow:         Bow;
-    scythe:      GreatStaff;
-    basher:      GreatStaff;
-    axe:         GreatStaff;
-}
-
-export interface Rapier {
-    mp_cost:   number;
-    frequency: number;
-    miss:      number;
-}
-
-export interface WarriorMainhand {
-    mace:        Spear;
-    fist:        RapierClass;
-    sword:       ArakGroundhog;
-    spear:       ArakGroundhog;
-    short_sword: BeijingPigeon;
-}
-
-export interface WarriorOffhand {
-    shield:       ArakGroundhog;
-    sword:        ArakGroundhog;
-    misc_offhand: Spear;
-    short_sword:  ArakGroundhog;
-    mace:         Spear;
-    fist:         RapierClass;
-}
+import { DamageType, Looks } from "../gamedata/class";
 
 export interface Conditions {
     newcomersblessing: Easterluck;
@@ -1449,7 +694,7 @@ export interface Games {
     wheel: Wheel;
     tarot: Tarot;
     slots: GamesSlots;
-    dice:  BeijingPigeon;
+    dice:  unknown;
 }
 
 export interface GamesSlots {
@@ -1466,16 +711,6 @@ export interface Tarot {
 export interface Wheel {
     gold:   number;
     slices: Array<Array<number | string>>;
-}
-
-export interface Image {
-    width:  number;
-    type:   ImageType;
-    height: number;
-}
-
-export enum ImageType {
-    PNG = "png",
 }
 
 export interface Imagesets {
@@ -1585,9 +820,9 @@ export interface DuellandClass {
     spawns:     Array<number[]>;
     monsters:   any[];
     data:       PurpleData;
-    items:      BeijingPigeon;
+    items:      unknown;
     merchants:  any[];
-    ref:        BeijingPigeon;
+    ref:        unknown;
     loss?:      boolean;
     irregular?: boolean;
     drop_norm?: number;
@@ -1623,9 +858,9 @@ export interface Arena {
     spawns:     Array<number[]>;
     monsters:   OldMonsterElement[];
     data:       PurpleData;
-    items:      BeijingPigeon;
+    items:      unknown;
     merchants:  any[];
-    ref:        BeijingPigeon;
+    ref:        unknown;
     no_bounds?: boolean;
     instance?:  boolean;
     quirks?:    any[];
@@ -1655,7 +890,7 @@ export interface BankClass {
     spawns:    Array<number[]>;
     monsters:  any[];
     data:      PurpleData;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
     ref:       { [key: string]: HargeisaCottonRat };
 }
@@ -1686,7 +921,7 @@ export interface BankB {
     spawns:    Array<number[]>;
     monsters:  any[];
     data:      PurpleData;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
     ref:       { [key: string]: HargeisaCottonRat };
 }
@@ -1704,9 +939,9 @@ export interface BankU {
     spawns:    Array<number[]>;
     monsters:  any[];
     data:      PurpleData;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
-    ref:       BeijingPigeon;
+    ref:       unknown;
 }
 
 export interface Batcave {
@@ -1733,9 +968,9 @@ export interface Cave {
     spawns:     Array<number[]>;
     monsters:   CaveMonster[];
     data:       PurpleData;
-    items:      BeijingPigeon;
+    items:      unknown;
     merchants:  any[];
-    ref:        BeijingPigeon;
+    ref:        unknown;
     safe?:      boolean;
     outside?:   boolean;
     event?:     string;
@@ -1761,9 +996,9 @@ export interface Crypt {
     spawns:    Array<number[]>;
     monsters:  OldMonsterElement[];
     data:      PurpleData;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
-    ref:       BeijingPigeon;
+    ref:       unknown;
 }
 
 export interface Cyberland {
@@ -1778,9 +1013,9 @@ export interface Cyberland {
     monsters:     OldMonsterElement[];
     irregular?:   boolean;
     data:         PurpleData;
-    items:        BeijingPigeon;
+    items:        unknown;
     merchants:    any[];
-    ref:          BeijingPigeon;
+    ref:          unknown;
     small_steps?: boolean;
     unlist?:      boolean;
     animatables?: CyberlandAnimatables;
@@ -1826,9 +1061,9 @@ export interface DA1 {
     spawns:    Array<number[]>;
     monsters:  any[];
     data:      PurpleData;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
-    ref:       BeijingPigeon;
+    ref:       unknown;
 }
 
 export enum World {
@@ -1860,9 +1095,9 @@ export interface DB1 {
     monsters:  any[];
     traps:     DB1Trap[];
     data:      DB1Data;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
-    ref:       BeijingPigeon;
+    ref:       unknown;
 }
 
 export interface DB1Data {
@@ -1900,7 +1135,7 @@ export interface DE {
     spawns:    Array<number[]>;
     monsters:  any[];
     data:      PurpleData;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
     ref:       DERef;
 }
@@ -1921,7 +1156,7 @@ export interface Desertland {
     burn_multiplier:   number;
     monsters:          OldMonsterElement[];
     data:              PurpleData;
-    items:             BeijingPigeon;
+    items:             unknown;
     merchants:         any[];
     ref:               DesertlandRef;
 }
@@ -1944,9 +1179,9 @@ export interface Dungeon0 {
     spawns:    Array<number[]>;
     monsters:  OldMonsterElement[];
     data:      Dungeon0Data;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
-    ref:       BeijingPigeon;
+    ref:       unknown;
 }
 
 export interface Dungeon0Data {
@@ -1968,7 +1203,7 @@ export interface Goobrawl {
     monsters:  OldMonsterElement[];
     event:     string;
     data:      PurpleData;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
     ref:       DERef;
 }
@@ -2024,7 +1259,7 @@ export interface Jail {
     monsters:  OldMonsterElement[];
     irregular: boolean;
     data:      PurpleData;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
     ref:       JailRef;
 }
@@ -2053,7 +1288,7 @@ export interface Level2 {
     data:      PurpleData;
     items:     Level2Items;
     merchants: null[];
-    ref:       BeijingPigeon;
+    ref:       unknown;
 }
 
 export interface Level2Items {
@@ -2074,9 +1309,9 @@ export interface Level2EClass {
     monsters:  OldMonsterElement[];
     unlist:    boolean;
     data:      PurpleData;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
-    ref:       BeijingPigeon;
+    ref:       unknown;
 }
 
 export interface Main {
@@ -2165,7 +1400,7 @@ export interface Mansion {
     spawns:    Array<number[]>;
     monsters:  OldMonsterElement[];
     data:      PurpleData;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
     ref:       MansionRef;
 }
@@ -2218,7 +1453,7 @@ export interface Resort {
     monsters:  any[];
     irregular: boolean;
     data:      PurpleData;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
     ref:       ResortRef;
 }
@@ -2244,7 +1479,7 @@ export interface Shellsisland {
     spawns:    Array<number[]>;
     monsters:  OldMonsterElement[];
     data:      PurpleData;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
     ref:       ShellsislandRef;
 }
@@ -2266,7 +1501,7 @@ export interface Spookytown {
     ref:       SpookytownRef;
     monsters:  D2Monster[];
     data:      PurpleData;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
 }
 
@@ -2333,7 +1568,7 @@ export interface Test {
     monsters:  any[];
     day:       boolean;
     data:      PurpleData;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
     ref:       DERef;
 }
@@ -2348,9 +1583,9 @@ export interface Tomb {
     spawns:    Array<number[]>;
     monsters:  OldMonsterElement[];
     data:      PurpleData;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
-    ref:       BeijingPigeon;
+    ref:       unknown;
 }
 
 export interface Tunnel {
@@ -2365,7 +1600,7 @@ export interface Tunnel {
     spawns:    Array<number[]>;
     monsters:  OldMonsterElement[];
     data:      PurpleData;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
     ref:       TunnelRef;
 }
@@ -2385,9 +1620,9 @@ export interface WinterCave {
     spawns:    Array<number[]>;
     monsters:  OldMonsterElement[];
     data:      PurpleData;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
-    ref:       BeijingPigeon;
+    ref:       unknown;
 }
 
 export interface WinterInn {
@@ -2426,7 +1661,7 @@ export interface MapsWinterland {
     spawns:            Array<number[]>;
     monsters:          OldMonsterElement[];
     data:              PurpleData;
-    items:             BeijingPigeon;
+    items:             unknown;
     merchants:         any[];
     ref:               WinterlandRef;
 }
@@ -2453,7 +1688,7 @@ export interface Woffice {
     drop_norm: number;
     monsters:  D2Monster[];
     data:      PurpleData;
-    items:     BeijingPigeon;
+    items:     unknown;
     merchants: any[];
     ref:       WofficeRef;
 }
@@ -2647,7 +1882,7 @@ export interface KanazawaIvoryBushCoral {
     type?:             FluffyType;
     direction?:        number;
     pack?:             string;
-    cx?:               LookClass;
+    cx?:               Looks;
     token?:            string;
     atype?:            string;
     items?:            Array<null | string>;
@@ -2868,10 +2103,10 @@ export interface Sets {
 }
 
 export interface Easter {
-    "1":         BeijingPigeon;
+    "1":         unknown;
     "2":         Purple2;
     "3":         The6_Class;
-    "4":         ArakGroundhog;
+    "4":         unknown;
     "5":         The6_Class;
     "6":         The6_Class;
     name:        string;
@@ -2888,7 +2123,7 @@ export interface The6_Class {
 }
 
 export interface Fury {
-    "1":   BeijingPigeon;
+    "1":   unknown;
     "2":   Fury2;
     "3":   Purple3;
     "4":   Fury4;
@@ -2909,21 +2144,21 @@ export interface Fury4 {
 }
 
 export interface Holidays {
-    "1":         BeijingPigeon;
+    "1":         unknown;
     "2":         Purple3;
     "3":         The6_Class;
     "4":         Purple2;
-    "5":         BeijingPigeon;
-    "6":         BeijingPigeon;
-    "7":         BeijingPigeon;
+    "5":         unknown;
+    "6":         unknown;
+    "7":         unknown;
     name:        string;
     items:       string[];
     explanation: string;
 }
 
 export interface Legends {
-    "1":   BeijingPigeon;
-    "2":   BeijingPigeon;
+    "1":   unknown;
+    "2":   unknown;
     "3":   The4_Class;
     "4":   The4_Class;
     name:  string;
@@ -2935,7 +2170,7 @@ export interface The4_Class {
 }
 
 export interface Mmage {
-    "1":         BeijingPigeon;
+    "1":         unknown;
     "2":         RequirementsClass;
     "3":         Mmage3;
     "4":         Mmage4;
@@ -2959,7 +2194,7 @@ export interface Mmage4 {
 }
 
 export interface Mmerchant {
-    "1":         BeijingPigeon;
+    "1":         unknown;
     "2":         The5_Class;
     "3":         Mmerchant3;
     "4":         Mmerchant4;
@@ -2988,7 +2223,7 @@ export interface Mmerchant4 {
 }
 
 export interface Mpriest {
-    "1":         BeijingPigeon;
+    "1":         unknown;
     "2":         RequirementsClass;
     "3":         Mmage3;
     "4":         Mmage4;
@@ -3003,7 +2238,7 @@ export interface Purple5 {
 }
 
 export interface Mpx {
-    "1":   BeijingPigeon;
+    "1":   unknown;
     "2":   Purple5;
     "3":   Mpx3;
     items: string[];
@@ -3017,7 +2252,7 @@ export interface Mpx3 {
 }
 
 export interface Mranger {
-    "1":         BeijingPigeon;
+    "1":         unknown;
     "2":         Purple3;
     "3":         Mranger3;
     "4":         Fury4;
@@ -3037,7 +2272,7 @@ export interface Mranger5 {
 }
 
 export interface Mrogue {
-    "1":         BeijingPigeon;
+    "1":         unknown;
     "2":         Purple3;
     "3":         Mranger3;
     "4":         Fury4;
@@ -3048,7 +2283,7 @@ export interface Mrogue {
 }
 
 export interface Mwarrior {
-    "1":         BeijingPigeon;
+    "1":         unknown;
     "2":         Fury2;
     "3":         Mwarrior3;
     "4":         Fury4;
@@ -3064,11 +2299,11 @@ export interface Mwarrior3 {
 }
 
 export interface Rugged {
-    "1":         BeijingPigeon;
+    "1":         unknown;
     "2":         The3_Class;
     "3":         Rugged3;
     "4":         The4_Class;
-    "5":         ArakGroundhog;
+    "5":         unknown;
     name:        string;
     items:       string[];
     explanation: string;
@@ -3087,23 +2322,23 @@ export interface Rugged3 {
 }
 
 export interface Swift {
-    "1":   BeijingPigeon;
+    "1":   unknown;
     "2":   Purple3;
     items: string[];
     name:  string;
 }
 
 export interface SetsTiger {
-    "1":   BeijingPigeon;
+    "1":   unknown;
     "2":   The6_Class;
     "3":   The3_Class;
-    "4":   ArakGroundhog;
+    "4":   unknown;
     name:  string;
     items: string[];
 }
 
 export interface Vampires {
-    "1":   BeijingPigeon;
+    "1":   unknown;
     "2":   The6_Class;
     "3":   Vampires3;
     items: string[];
@@ -3115,7 +2350,7 @@ export interface Vampires3 {
 }
 
 export interface Wanderers {
-    "1":         BeijingPigeon;
+    "1":         unknown;
     "2":         Wanderers2;
     "3":         Purple5;
     "4":         Wanderers4;
@@ -3690,72 +2925,10 @@ export interface Lights {
     file:  string;
 }
 
-export interface Titles {
-    abtesting:  TitlesAbtesting;
-    firehazard: TitlesAbtesting;
-    festive:    TitlesAbtesting;
-    critmonger: Critmonger;
-    glitched:   Glitched;
-    lucky:      TitlesAbtesting;
-    legacy:     TitlesLegacy;
-    fast:       Fast;
-    gooped:     TitlesAbtesting;
-    stomped:    TitlesAbtesting;
-    shiny:      Glitched;
-    superfast:  Fast;
-    sniper:     Sniper;
-}
-
-export interface TitlesAbtesting {
-    type:          string;
-    for?:          number;
-    achievement?:  string;
-    title:         string;
-    luck?:         number;
-    critdamage?:   number;
-    pnresistance?: number;
-}
-
-export interface Critmonger {
-    type:  string;
-    str:   number;
-    title: string;
-}
-
-export interface Fast {
-    source:    string;
-    frequency: number;
-    type:      string;
-    misc:      boolean;
-    title:     string;
-}
-
-export interface Glitched {
-    source:       string;
-    type:         string;
-    random_stat?: number;
-    title:        string;
-    improve?:     boolean;
-}
-
-export interface TitlesLegacy {
-    manual: boolean;
-    type:   string;
-    title:  string;
-}
-
-export interface Sniper {
-    consecutive_200p_range_last_hits: number;
-    attack:                           number;
-    title:                            string;
-    type:                             string;
-    source:                           string;
-}
-
 export interface TokensClass {
     pvptoken:     Pvptoken;
     funtoken:     Funtoken;
-    friendtoken:  BeijingPigeon;
+    friendtoken:  unknown;
     monstertoken: { [key: string]: number };
 }
 
