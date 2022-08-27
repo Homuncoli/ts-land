@@ -26,7 +26,7 @@ export interface Gamedata {
     craft:        Craft;
     npcs:         Npcs;
     geometry:     BeijingPigeon;
-    items:        { [key: string]: Item };
+    items:        { [key: string]: ItemStats };
     levels:       { [key: string]: number };
     events:       Events;
     skills:       Skills;
@@ -1513,7 +1513,7 @@ export enum SizeEnum {
     Xxsmall = "xxsmall",
 }
 
-export interface Item {
+export interface ItemStats {
     skin_r?:          string;
     explanation?:     string;
     grades?:          number[];
