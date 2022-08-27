@@ -17,7 +17,7 @@ export interface Gamedata {
     version:      number;
     cosmetics:    Cosmetics;
     conditions:   Conditions;
-    monsters:     Monsters;
+    monsters:     { [key in keyof MonsterNames]: MonsterData };
     achievements: Achievements;
     docs:         Docs;
     dismantle:    { [key: string]: SantiagoDeCaliRaven };
@@ -344,7 +344,7 @@ export interface Classes {
 export interface Mage {
     resistance:  number;
     frequency:   number;
-    damage_type: SkinEnum;
+    damage_type: DamageType;
     mcourage:    number;
     xcx:         string[];
     speed:       number;
@@ -378,7 +378,7 @@ export interface BaseSlotsMainhand {
     level: number;
 }
 
-export enum SkinEnum {
+export enum DamageType {
     Heal = "heal",
     Magical = "magical",
     Physical = "physical",
@@ -405,14 +405,6 @@ export enum HeadEnum {
     Makeup105 = "makeup105",
     Makeup107 = "makeup107",
     Makeup117 = "makeup117",
-}
-
-export interface Stats {
-    dex: number;
-    int: number;
-    vit: number;
-    str: number;
-    for: number;
 }
 
 export interface MageMainhand {
@@ -500,7 +492,7 @@ export interface MerchantOffhand {
 export interface Paladin {
     resistance:  number;
     frequency:   number;
-    damage_type: SkinEnum;
+    damage_type: DamageType;
     mcourage:    number;
     speed:       number;
     doublehand:  BeijingPigeon;
@@ -556,7 +548,7 @@ export interface PaladinOffhand {
 export interface Priest {
     resistance:  number;
     frequency:   number;
-    damage_type: SkinEnum;
+    damage_type: DamageType;
     mcourage:    number;
     xcx:         string[];
     speed:       number;
@@ -596,7 +588,7 @@ export interface PriestMainhand {
 export interface Ranger {
     resistance:  number;
     frequency:   number;
-    damage_type: SkinEnum;
+    damage_type: DamageType;
     mcourage:    number;
     speed:       number;
     doublehand:  RangerDoublehand;
@@ -648,7 +640,7 @@ export interface RangerOffhand {
 export interface ClassesRogue {
     resistance:  number;
     frequency:   number;
-    damage_type: SkinEnum;
+    damage_type: DamageType;
     mcourage:    number;
     speed:       number;
     doublehand:  RogueDoublehand;
@@ -713,7 +705,7 @@ export interface Warrior {
     brave:       boolean;
     resistance:  number;
     frequency:   number;
-    damage_type: SkinEnum;
+    damage_type: DamageType;
     mcourage:    number;
     xcx:         string[];
     speed:       number;
@@ -858,7 +850,7 @@ export interface EsbjergCougar {
     duration?:    number;
     type?:        PurpleType;
     hostile?:     boolean;
-    damage_type?: SkinEnum;
+    damage_type?: DamageType;
 }
 
 export enum PurpleType {
@@ -1513,127 +1505,6 @@ export enum SizeEnum {
     Xxsmall = "xxsmall",
 }
 
-export interface ItemStats {
-    skin_r?:          string;
-    explanation?:     string;
-    grades?:          number[];
-    damage_type?:     SkinEnum;
-    skin:             string;
-    tier?:            number;
-    name:             string;
-    a?:               boolean | number;
-    upgrade?:         { [key: string]: number };
-    rpiercing?:       number;
-    g:                number;
-    wtype?:           string;
-    attack?:          number;
-    trex?:            string;
-    range?:           number;
-    projectile?:      string;
-    type:             string;
-    id:               string;
-    dex?:             number;
-    compound?:        { [key: string]: number };
-    stat?:            number | string;
-    set?:             string;
-    resistance?:      number;
-    rogue?:           ItemRogue;
-    crit?:            number;
-    speed?:           number;
-    extra_stat?:      number;
-    armor?:           number;
-    protection?:      boolean;
-    scroll?:          boolean;
-    ignore?:          boolean;
-    s?:               boolean | number;
-    e?:               number;
-    skin_a?:          string;
-    str?:             number;
-    miss?:            number;
-    duration?:        number;
-    buy?:             boolean;
-    breaks?:          number;
-    fzresistance?:    number;
-    lifesteal?:       number;
-    withdrawal?:      string;
-    event?:           boolean;
-    firesistance?:    number;
-    cx?:              ItemCx;
-    ability?:         string;
-    reflection?:      number;
-    mp?:              number;
-    class?:           OldRole[];
-    int?:             number;
-    vit?:             number;
-    evasion?:         number;
-    gold?:            number;
-    legacy?:          ItemLegacy;
-    days?:            number;
-    gain?:            string;
-    blast?:           number;
-    cuteness?:        number;
-    frequency?:       number;
-    credit?:          string;
-    stand?:           string;
-    special?:         boolean;
-    edge?:            number;
-    multiplier?:      number;
-    hp?:              number;
-    onclick?:         string;
-    action?:          string;
-    grade?:           number;
-    monster?:         string;
-    apiercing?:       number;
-    dreturn?:         number;
-    attr0?:           number;
-    quest?:           string;
-    eat?:             boolean;
-    attr1?:           number;
-    skin_c?:          string;
-    charisma?:        number;
-    exclusive?:       boolean;
-    markup?:          number;
-    pnresistance?:    number;
-    mcourage?:        number;
-    pcourage?:        number;
-    critdamage?:      number;
-    output?:          number;
-    luck?:            number;
-    reward?:          number;
-    xp?:              number;
-    delia?:           string;
-    stun?:            number;
-    opens?:           string;
-    winterland?:      ItemWinterland;
-    for?:             number;
-    bling?:           number;
-    charge?:          number;
-    cooldown?:        number;
-    gives?:           Array<Array<number | string>>;
-    unlocks?:         string;
-    spawn?:           string;
-    note?:            string;
-    mp_cost?:         number;
-    mp_reduction?:    number;
-    offering?:        number;
-    manasteal?:       number;
-    aura?:            string;
-    explosion?:       number;
-    npc?:             string;
-    nopo?:            string;
-    projectile_test?: string;
-    hat?:             string;
-    xscroll?:         boolean;
-    acolor?:          string;
-    debuff?:          boolean;
-    rare?:            boolean;
-    awesomeness?:     number;
-    cash?:            number;
-    buy_with_cash?:   boolean;
-    xcx?:             string[];
-    courage?:         number;
-}
-
 export enum OldRole {
     Mage = "mage",
     Merchant = "merchant",
@@ -1642,36 +1513,6 @@ export enum OldRole {
     Ranger = "ranger",
     Rogue = "rogue",
     Warrior = "warrior",
-}
-
-export interface ItemCx {
-    scale?:       number;
-    accent?:      string;
-    extension?:   boolean;
-    large?:       boolean;
-    lightborder?: boolean;
-    border?:      number;
-}
-
-export interface ItemLegacy {
-    gold?:  number;
-    set?:   null;
-    class?: null;
-    luck?:  number;
-}
-
-export interface ItemRogue {
-    crit:    number;
-    upgrade: UpgradeClass;
-}
-
-export interface UpgradeClass {
-    crit: number;
-}
-
-export interface ItemWinterland {
-    upgrade: ArakGroundhog;
-    speed:   number;
 }
 
 export interface GMaps {
@@ -2622,506 +2463,14 @@ export interface WofficeRef {
     wnpc:         HargeisaCottonRat;
 }
 
-export interface Monsters {
-    snowman:         DibrugarhFerrets;
-    cutebee:         VeracruzChimpanzee;
-    wolfie:          VeracruzChimpanzee;
-    gredpro:         VeracruzChimpanzee;
-    fireroamer:      VeracruzChimpanzee;
-    greenfairy:      VeracruzChimpanzee;
-    icegolem:        DibrugarhFerrets;
-    skeletor:        DibrugarhFerrets;
-    nerfedmummy:     VeracruzChimpanzee;
-    prat:            DibrugarhFerrets;
-    mrpumpkin:       VeracruzChimpanzee;
-    bscorpion:       VeracruzChimpanzee;
-    scorpion:        DibrugarhFerrets;
-    jrat:            DibrugarhFerrets;
-    porcupine:       DibrugarhFerrets;
-    target_ar900:    VeracruzChimpanzee;
-    bbpompom:        VeracruzChimpanzee;
-    slenderman:      DibrugarhFerrets;
-    snake:           DibrugarhFerrets;
-    target_a750:     VeracruzChimpanzee;
-    bat:             VeracruzChimpanzee;
-    crabx:           VeracruzChimpanzee;
-    xscorpion:       DibrugarhFerrets;
-    target_ar500red: VeracruzChimpanzee;
-    felemental:      VeracruzChimpanzee;
-    nelemental:      VeracruzChimpanzee;
-    puppy4:          VeracruzChimpanzee;
-    spider:          VeracruzChimpanzee;
-    chestm:          VeracruzChimpanzee;
-    puppy3:          VeracruzChimpanzee;
-    vbat:            DibrugarhFerrets;
-    croc:            VeracruzChimpanzee;
-    gscorpion:       DibrugarhFerrets;
-    goo:             DibrugarhFerrets;
-    mummy:           VeracruzChimpanzee;
-    dknight2:        VeracruzChimpanzee;
-    crabxx:          VeracruzChimpanzee;
-    pinkgoo:         DibrugarhFerrets;
-    squigtoad:       VeracruzChimpanzee;
-    pppompom:        DibrugarhFerrets;
-    mvampire:        VeracruzChimpanzee;
-    jr:              DibrugarhFerrets;
-    stompy:          VeracruzChimpanzee;
-    d_wiz:           VeracruzChimpanzee;
-    osnake:          DibrugarhFerrets;
-    target_r750:     VeracruzChimpanzee;
-    dragold:         VeracruzChimpanzee;
-    tortoise:        DibrugarhFerrets;
-    wolf:            VeracruzChimpanzee;
-    mrgreen:         VeracruzChimpanzee;
-    ligerx:          DibrugarhFerrets;
-    fieldgen0:       VeracruzChimpanzee;
-    kitty3:          DibrugarhFerrets;
-    eelemental:      VeracruzChimpanzee;
-    boar:            VeracruzChimpanzee;
-    franky:          DibrugarhFerrets;
-    poisio:          DibrugarhFerrets;
-    kitty4:          DibrugarhFerrets;
-    kitty1:          DibrugarhFerrets;
-    frog:            VeracruzChimpanzee;
-    kitty2:          DibrugarhFerrets;
-    crab:            VeracruzChimpanzee;
-    plantoid:        DibrugarhFerrets;
-    hen:             DibrugarhFerrets;
-    redfairy:        VeracruzChimpanzee;
-    wabbit:          DibrugarhFerrets;
-    target_r500:     VeracruzChimpanzee;
-    xmagen:          DibrugarhFerrets;
-    oneeye:          VeracruzChimpanzee;
-    tiger:           MonstersTiger;
-    armadillo:       VeracruzChimpanzee;
-    puppy2:          VeracruzChimpanzee;
-    xmagex:          VeracruzChimpanzee;
-    bluefairy:       VeracruzChimpanzee;
-    goblin:          DibrugarhFerrets;
-    fvampire:        VeracruzChimpanzee;
-    puppy1:          DibrugarhFerrets;
-    welemental:      VeracruzChimpanzee;
-    target:          VeracruzChimpanzee;
-    iceroamer:       DibrugarhFerrets;
-    grinch:          MonstersGrinch;
-    bee:             VeracruzChimpanzee;
-    zapper0:         DibrugarhFerrets;
-    pinkgoblin:      DibrugarhFerrets;
-    minimush:        VeracruzChimpanzee;
-    squig:           VeracruzChimpanzee;
-    tinyp:           DibrugarhFerrets;
-    rooster:         DibrugarhFerrets;
-    rat:             VeracruzChimpanzee;
-    a7:              DibrugarhFerrets;
-    mole:            VeracruzChimpanzee;
-    rudolph:         DibrugarhFerrets;
-    xmagefi:         DibrugarhFerrets;
-    bgoo:            VeracruzChimpanzee;
-    ent:             VeracruzChimpanzee;
-    target_a500:     VeracruzChimpanzee;
-    xmagefz:         DibrugarhFerrets;
-    mechagnome:      DibrugarhFerrets;
-    stoneworm:       VeracruzChimpanzee;
-    phoenix:         DibrugarhFerrets;
-    gbluepro:        VeracruzChimpanzee;
-    arcticbee:       VeracruzChimpanzee;
-    ggreenpro:       VeracruzChimpanzee;
-    a1:              DibrugarhFerrets;
-    a3:              A2;
-    a2:              A2;
-    a5:              DibrugarhFerrets;
-    a4:              DibrugarhFerrets;
-    booboo:          VeracruzChimpanzee;
-    a6:              DibrugarhFerrets;
-    a8:              A8;
-    greenjr:         VeracruzChimpanzee;
-    rgoo:            DibrugarhFerrets;
-    ghost:           DibrugarhFerrets;
-    cgoo:            VeracruzChimpanzee;
-    bigbird:         VeracruzChimpanzee;
-    goldenbat:       DibrugarhFerrets;
-    gpurplepro:      DibrugarhFerrets;
-}
-
-export interface DibrugarhFerrets {
-    resistance?:    number;
-    humanoid?:      boolean;
-    frequency:      number;
-    damage_type:    PurpleDamageType;
-    skin:           string;
-    xp:             number;
-    speed:          number;
-    slots?:         PurpleSlots;
-    armor?:         number;
-    charge:         number;
-    attack:         number;
-    lucrativeness?: number;
-    spawns?:        Array<Array<number | string>>;
-    hp:             number;
-    name:           string;
-    rage:           number;
-    respawn:        number;
-    range:          number;
-    aggro:          number;
-    mp:             number;
-    roam?:          boolean;
-    abilities?:     PurpleAbilities;
-    supporter?:     boolean;
-    cooperative?:   boolean;
-    special?:       boolean;
-    announce?:      boolean | string;
-    achievements?:  Array<Array<number | string>>;
-    hit?:           string;
-    evasion?:       number;
-    max_hp?:        number;
-    immune?:        boolean;
-    reflection?:    number;
-    aa?:            number;
-    explanation?:   string;
-    article?:       string;
-    cute?:          boolean;
-    rpiercing?:     number;
-    cbuff?:         Array<Array<number | string>>;
-    difficulty?:    number;
-    prefix?:        string;
-    "1hp"?:         boolean;
-    avoidance?:     number;
-    dreturn?:       number;
-    poisonous?:     boolean;
-    lifesteal?:     number;
-    pet?:           Pet;
-    size?:          number;
-    s?:             S;
-    escapist?:      boolean;
-    operator?:      boolean;
-    rbuff?:         string;
-    hide?:          boolean;
-    respawn_as?:    string;
-    trap?:          boolean;
-}
-
-export interface PurpleAbilities {
-    healing?:        Healing;
-    weakness_aura?:  AbilitiesDampeningAura;
-    mlight?:         Mlight;
-    dampening_aura?: AbilitiesDampeningAura;
-    putrid?:         Putrid;
-    multi_freeze?:   Multi;
-    portal?:         Mlight;
-    self_healing?:   Healing;
-    anger?:          AngerClass;
-    multi_burn?:     Multi;
-    deepfreeze?:     AngerClass;
-    mtangle?:        Mlight;
-    degen?:          Degen;
-    zap?:            Zap;
-}
-
-export interface AngerClass {
-    cooldown: number;
-    radius:   number;
-}
-
-export interface AbilitiesDampeningAura {
-    cooldown:  number;
-    radius:    number;
-    aura:      boolean;
-    condition: string;
-}
-
-export interface Degen {
-    amount:   number;
-    cooldown: number;
-}
-
-export interface Healing {
-    heal:     number;
-    cooldown: number;
-}
-
-export interface Mlight {
-    cooldown: number;
-}
-
-export interface Multi {
-    cooldown: number;
-    damage:   number;
-}
-
-export interface Putrid {
-    curse:  boolean;
-    poison: boolean;
-}
-
-export interface Zap {
-    amount:   number;
-    cooldown: number;
-    radius:   number;
-    pure:     boolean;
-}
-
-export enum PurpleDamageType {
-    Magical = "magical",
-    Physical = "physical",
-    Pure = "pure",
-}
-
-export interface Pet {
-    courage:     number[];
-    passion:     number[];
-    exponential: boolean;
-    level:       LevelClass;
-    xp:          number;
-    brightness:  number;
-    chatter:     number[];
-    obedience:   number[];
-    aggression:  number[];
-}
-
-export interface LevelClass {
-    evasion:    number;
-    armor:      number;
-    hp:         number;
-    attack:     number;
-    resistance: number;
-    charge:     number;
-    speed:      number;
-}
-
-export interface S {
-    fullguardx?: SFullguard;
-    fullguard?:  SFullguard;
-}
-
-export interface SFullguard {
-    ms: number;
-}
-
-export interface PurpleSlots {
-    mainhand: Hand;
-}
-
 export interface Hand {
     name:  string;
     level: number;
 }
 
-export interface A2 {
-    abilities:     A2Abilities;
-    resistance:    number;
-    humanoid:      boolean;
-    frequency:     number;
-    damage_type:   SkinEnum;
-    skin:          string;
-    xp:            number;
-    speed:         number;
-    slots:         A2Slots;
-    armor:         number;
-    poisonous?:    boolean;
-    charge:        number;
-    attack:        number;
-    lucrativeness: number;
-    hp:            number;
-    name:          string;
-    rage:          number;
-    respawn:       number;
-    range:         number;
-    aggro:         number;
-    mp:            number;
-    roam:          boolean;
-    explosion?:    number;
-}
-
-export interface A2Abilities {
-    anger: AngerClass;
-}
-
-export interface A2Slots {
-    mainhand: Hand;
-    offhand:  Hand;
-}
-
-export interface A8 {
-    abilities:     A8Abilities;
-    resistance:    number;
-    humanoid:      boolean;
-    frequency:     number;
-    damage_type:   SkinEnum;
-    skin:          string;
-    xp:            number;
-    speed:         number;
-    slots:         A2Slots;
-    armor:         number;
-    charge:        number;
-    attack:        number;
-    lucrativeness: number;
-    hp:            number;
-    name:          string;
-    rage:          number;
-    respawn:       number;
-    range:         number;
-    aggro:         number;
-    mp:            number;
-    roam:          boolean;
-}
-
-export interface A8Abilities {
-    curse_aura: AbilitiesDampeningAura;
-}
-
-export interface VeracruzChimpanzee {
-    aa?:            number;
-    achievements?:  Array<Array<number | string>>;
-    hp:             number;
-    frequency:      number;
-    damage_type:    PurpleDamageType;
-    skin:           string;
-    xp:             number;
-    speed:          number;
-    name:           string;
-    rage:           number;
-    respawn:        number;
-    range:          number;
-    attack:         number;
-    aggro:          number;
-    mp:             number;
-    charge:         number;
-    max_hp?:        number;
-    dreturn?:       number;
-    hit?:           Hit;
-    resistance?:    number;
-    cooperative?:   boolean;
-    special?:       boolean;
-    size?:          number;
-    armor?:         number;
-    evasion?:       number;
-    difficulty?:    number;
-    abilities?:     FluffyAbilities;
-    crit?:          number;
-    poisonous?:     boolean;
-    lucrativeness?: number;
-    hide?:          boolean;
-    announce?:      string;
-    spawns?:        Array<Array<number | string>>;
-    cute?:          boolean;
-    avoidance?:     number;
-    explanation?:   string;
-    slots?:         PurpleSlots;
-    unlist?:        boolean;
-    projectile?:    string;
-    trap?:          boolean;
-    rpiercing?:     number;
-    prefix?:        string;
-    rbuff?:         string;
-    humanoid?:      boolean;
-    article?:       string;
-    reflection?:    number;
-    cbuff?:         Array<Array<number | string>>;
-    apiercing?:     number;
-    pet?:           Pet;
-    balance?:       string;
-    orientation?:   number;
-    stationary?:    boolean;
-    immune?:        boolean;
-}
-
-export interface FluffyAbilities {
-    weakness_aura?:  AbilitiesDampeningAura;
-    self_healing?:   Healing;
-    multi_burn?:     Multi;
-    mtangle?:        Mlight;
-    degen?:          Degen;
-    dampening_aura?: AbilitiesDampeningAura;
-    burn?:           Burn;
-    multi_freeze?:   Multi;
-    tangle?:         Mlight;
-    stone?:          Mlight;
-    heal?:           Healing;
-    portal?:         Mlight;
-    anger?:          AngerClass;
-    warpstomp?:      Warpstomp;
-}
-
-export interface Burn {
-    unlimited: boolean;
-    attr0:     number;
-}
-
-export interface Warpstomp {
-    stun:     number;
-    cooldown: number;
-    radius:   number;
-}
-
 export enum Hit {
     ExplodeC = "explode_c",
     ExplodeP = "explode_p",
-}
-
-export interface MonstersGrinch {
-    abilities:    GrinchAbilities;
-    global:       boolean;
-    resistance:   number;
-    prefix:       string;
-    frequency:    number;
-    damage_type:  SkinEnum;
-    cooperative:  boolean;
-    skin:         string;
-    xp:           number;
-    speed:        number;
-    slots:        PurpleSlots;
-    special:      boolean;
-    humanoid:     boolean;
-    passive:      boolean;
-    attack:       number;
-    announce:     string;
-    achievements: Array<Array<number | string>>;
-    goldsteal:    number;
-    hit:          Hit;
-    hp:           number;
-    name:         string;
-    rage:         number;
-    respawn:      number;
-    range:        number;
-    aggro:        number;
-    mp:           number;
-    charge:       number;
-    max_hp:       number;
-}
-
-export interface GrinchAbilities {
-    portal:       Mlight;
-    self_healing: Healing;
-}
-
-export interface MonstersTiger {
-    cute:         boolean;
-    frequency:    number;
-    damage_type:  SkinEnum;
-    skin:         string;
-    xp:           number;
-    speed:        number;
-    special:      boolean;
-    armor:        number;
-    immune:       boolean;
-    attack:       number;
-    peaceful:     boolean;
-    announce:     string;
-    avoidance:    number;
-    drop_on_hit:  boolean;
-    explanation:  string;
-    achievements: Array<Array<number | string>>;
-    hp:           number;
-    reflection:   number;
-    name:         string;
-    rage:         number;
-    respawn:      number;
-    range:        number;
-    aggro:        number;
-    mp:           number;
-    roam:         boolean;
-    charge:       number;
-    max_hp:       number;
 }
 
 export interface Multipliers {
@@ -3900,7 +3249,7 @@ export interface Skills {
 export interface Shot {
     wtype:               string[];
     multi?:              boolean;
-    damage_type:         SkinEnum;
+    damage_type:         DamageType;
     name:                string;
     level:               number;
     cooldown_multiplier: number;
@@ -3972,7 +3321,7 @@ export interface Alchemy {
     action:       string;
     variance?:    number;
     type:         StickyType;
-    damage_type?: SkinEnum;
+    damage_type?: DamageType;
     projectile?:  string;
     heal?:        boolean;
 }
@@ -4021,7 +3370,7 @@ export interface Blink {
 export interface CburstClass {
     explanation:       string;
     cooldown:          number;
-    damage_type?:      PurpleDamageType;
+    damage_type?:      DamageType;
     skin?:             string;
     class?:            OldRole[];
     name:              string;
@@ -4066,7 +3415,7 @@ export interface Charm {
 export interface Cleave {
     explanation:        string;
     cooldown:           number;
-    damage_type?:       SkinEnum;
+    damage_type?:       DamageType;
     skin:               string;
     class:              OldRole[];
     procs?:             boolean;
@@ -4102,7 +3451,7 @@ export interface Deepfreeze {
     hostile:     boolean;
     explanation: string;
     damage:      number;
-    damage_type: PurpleDamageType;
+    damage_type: DamageType;
     projectile:  string;
     type:        PurpleType;
     name:        string;
@@ -4124,7 +3473,7 @@ export interface Entangle {
     mp:           number;
     type:         StickyType;
     monsters?:    boolean;
-    damage_type?: SkinEnum;
+    damage_type?: DamageType;
     wtype?:       string;
 }
 
@@ -4145,8 +3494,8 @@ export interface Ing {
 export interface Heal {
     explanation:         string;
     share:               string;
-    damage_type:         SkinEnum;
-    skin:                SkinEnum;
+    damage_type:         DamageType;
+    skin:                DamageType;
     class:               OldRole[];
     procs:               boolean;
     target:              boolean;
@@ -4181,7 +3530,7 @@ export interface Mentalburst {
     range_bonus?:      number;
     cooldown:          number;
     target:            boolean;
-    damage_type:       SkinEnum;
+    damage_type:       DamageType;
     skin:              string;
     type:              StickyType;
     class:             OldRole[];
@@ -4197,7 +3546,7 @@ export interface Mentalburst {
 export interface SkillsPartyheal {
     explanation: string;
     cooldown:    number;
-    damage_type: SkinEnum;
+    damage_type: DamageType;
     skin:        string;
     class:       OldRole[];
     multi:       boolean;
@@ -4206,7 +3555,7 @@ export interface SkillsPartyheal {
     levels:      Array<number[]>;
     mp:          number;
     projectile:  string;
-    action:      SkinEnum;
+    action:      DamageType;
     party:       boolean;
     type:        StickyType;
     heal:        boolean;
@@ -4214,7 +3563,7 @@ export interface SkillsPartyheal {
 
 export interface Poisonarrow {
     wtype:       string[];
-    damage_type: SkinEnum;
+    damage_type: DamageType;
     name:        string;
     explanation: string;
     projectile:  string;
@@ -4247,7 +3596,7 @@ export interface ZapperzapClass {
     explanation: string;
     cooldown:    number;
     target:      boolean;
-    damage_type: PurpleDamageType;
+    damage_type: DamageType;
     skin:        string;
     class?:      OldRole[];
     name:        string;
@@ -4292,7 +3641,7 @@ export interface Throw {
     range:            number;
     cooldown:         number;
     target:           boolean;
-    damage_type:      SkinEnum;
+    damage_type:      DamageType;
     skin:             string;
     type:             StickyType;
     class:            OldRole[];

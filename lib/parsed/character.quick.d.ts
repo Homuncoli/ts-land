@@ -86,7 +86,7 @@ export type Character = {
     mcourage:        number;
     pcourage:        number;
     fear:            number;
-    items:           Array<OwnedItem | null>;
+    items:           Array<ItemReference | null>;
     cc:              number;
     ipass:           string;
     home:            string;
@@ -113,12 +113,6 @@ export type Character = {
     stats:           Stats;
     listeners:       Listener[];
     bot:             string;
-}
-
-export type OwnedItem = {
-    name: string;
-    level?: number;
-    q?: number;
 }
 
 export type Channel = {
@@ -173,31 +167,6 @@ export type NameTag = {
     zy:      number;
     name:    string | null;
 }
-
-export type Slots = {
-    ring1:    Equipment | null;
-    ring2:    Equipment | null;
-    earring1: Equipment | null;
-    earring2: Equipment | null;
-    belt:     Equipment | null;
-    mainhand: Equipment | null;
-    offhand:  Equipment | null;
-    helmet:   Equipment | null;
-    chest:    Equipment | null;
-    pants:    Equipment | null;
-    shoes:    Equipment | null;
-    gloves:   Equipment | null;
-    amulet:   Equipment | null;
-    orb:      Equipment | null;
-    elixir:   Equipment | null;
-    cape:     Equipment | null;
-}
-
-export type Equipment = {
-    name: string;
-    gift?: number;
-    level?: number;
-};
 
 export type Stats = {
     str: number;
