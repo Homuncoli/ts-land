@@ -12,6 +12,7 @@ declare global {
 
     function can_move_to(x: number, y: number): boolean;
     function can_walk(entity: any): boolean;
+    function is_moving(entity: any): boolean;
 
     function move(x: number, y: number): Promise<Result>;
     function smart_move(destination: Destination, on_done?: number): Promise<Result>;

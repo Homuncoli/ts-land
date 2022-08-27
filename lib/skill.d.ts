@@ -9,8 +9,9 @@ declare global {
     
     function use_skill(skill: string, arg: any): Promise<Result> | Promise<Result>[];
     function attack(target: any): Promise<Result>;
+    function change_target(target: any): Promise<Result>;
 
-    interface Ablities {
+    interface Abilities {
         healing?:        Healing;
         weakness_aura?:  AbilitiesDampeningAura;
         mlight?:         Mlight;
