@@ -6,4 +6,6 @@ declare global {
     * @param obj 
     */
     function show_json(obj: any): void;
+
+    function is_object(obj: any): boolean;
 }
